@@ -33,9 +33,18 @@ public class LinkedList {
 
     }
 
+    public void deleteFirst(){
+        if (isEmpty()){
+            return;
+        }
+        var temp = first;
+        first = first.next;
+        temp.next = null;
+    }
+
     public boolean contains(int data){
         var temp = first;
-        if (temp == null){
+        if (isEmpty()){
             return false;
         }
 
@@ -51,7 +60,7 @@ public class LinkedList {
     public int index0f(int data){
         int count = -1;
         var temp = first;
-        if (temp == null){
+        if (isEmpty()){
             return -1;
         }
 
@@ -77,6 +86,10 @@ public class LinkedList {
                 subjectNode = subjectNode.next;
             }
         }
+    }
+
+    public boolean isEmpty() {
+        return first == null;
     }
 
     public void printFirst(){
