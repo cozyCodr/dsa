@@ -3,6 +3,7 @@ package codewithbright.LinkedList;
 public class LinkedList {
     private Node first;
     private Node last;
+    private int size = 0;
 
     public void addFirst(int data){
         Node node = new Node(data);
@@ -11,12 +12,14 @@ public class LinkedList {
             // let first point to subject node
             this.first = node;
             setLast();
+            size++;
         }
         else {
             // Let the subject node point to what first is pointing to
             node.next = first;
             // Set first to point to subject node
             first= node;
+            size++;
         }
     }
 
@@ -25,10 +28,12 @@ public class LinkedList {
         // If empty, set node to currentLast
         if (first == null){
             first = last = node;
+            size++;
         } else {
             // Loop through list until next pointer is null
             last.next = node;
             last = node;
+            size++;
         }
 
     }
@@ -40,6 +45,7 @@ public class LinkedList {
         var temp = first;
         first = first.next;
         temp.next = null;
+        size--;
     }
 
     public void deleteLast(){
@@ -51,6 +57,7 @@ public class LinkedList {
             assert temp.next != null;
             if (temp.next.next == null){
                 temp.next = null;
+                size--;
                 break;
             }
             temp = temp.next;
@@ -88,6 +95,10 @@ public class LinkedList {
             count++;
         }
         return -1;
+    }
+
+    public int size(){
+        return this.size;
     }
 
     public void setLast(){

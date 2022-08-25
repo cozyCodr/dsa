@@ -11,9 +11,9 @@ public class Main {
         mylist.addLast(13);
         mylist.addFirst(25);
         mylist.printList();
+        System.out.println(mylist.size());
         mylist.deleteLast();
         mylist.deleteLast();
-        System.out.println(mylist.contains(10));
         mylist.printList();
     }
 }
