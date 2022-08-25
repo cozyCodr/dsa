@@ -10,7 +10,7 @@ public class Main {
         mylist.addLast(12);
         mylist.addLast(13);
         mylist.addFirst(25);
-        System.out.println(mylist.index0f(11));
+        System.out.println(mylist.contains(10));
         mylist.printList();
     }
 }

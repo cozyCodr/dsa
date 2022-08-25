@@ -33,6 +33,38 @@ public class LinkedList {
 
     }
 
+    public boolean contains(int data){
+        var temp = first;
+        if (temp == null){
+            return false;
+        }
+
+        while (temp != null){
+            if (temp.data == data){
+                return true;
+            }
+            temp = temp.next;
+        }
+        return false;
+    }
+
+    public int index0f(int data){
+        int count = -1;
+        var temp = first;
+        if (temp == null){
+            return -1;
+        }
+
+        while (temp != null){
+            if (temp.data == data){
+                return count;
+            }
+            temp = temp.next;
+            count++;
+        }
+        return -1;
+    }
+
     public void setLast(){
         boolean isLast = false;
         Node subjectNode = first;
@@ -45,23 +77,6 @@ public class LinkedList {
                 subjectNode = subjectNode.next;
             }
         }
-    }
-
-    public int index0f(int data){
-        int count = 0;
-        var temp = first;
-        if (temp == null){
-            return -1;
-        }
-
-        while (temp != null){
-            if (temp.data == data){
-                return --count;
-            }
-            temp = temp.next;
-            count++;
-        }
-        return -1;
     }
 
     public void printFirst(){
