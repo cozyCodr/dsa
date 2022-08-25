@@ -42,6 +42,22 @@ public class LinkedList {
         temp.next = null;
     }
 
+    public void deleteLast(){
+        if(isEmpty()) {
+            return;
+        }
+        var temp = first;
+        while (temp != null){
+            assert temp.next != null;
+            if (temp.next.next == null){
+                temp.next = null;
+                break;
+            }
+            temp = temp.next;
+        }
+
+    }
+
     public boolean contains(int data){
         var temp = first;
         if (isEmpty()){

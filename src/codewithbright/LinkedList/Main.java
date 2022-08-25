@@ -10,7 +10,9 @@ public class Main {
         mylist.addLast(12);
         mylist.addLast(13);
         mylist.addFirst(25);
-        mylist.deleteFirst();
+        mylist.printList();
+        mylist.deleteLast();
+        mylist.deleteLast();
         System.out.println(mylist.contains(10));
         mylist.printList();
     }
