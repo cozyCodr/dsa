@@ -23,21 +23,12 @@ public class LinkedList {
     public void addLast(int data){
         Node node = new Node(data);
         // If empty, set node to currentLast
-        if (this.last == null){
-            this.last = node;
+        if (first == null){
+            first = last = node;
         } else {
             // Loop through list until next pointer is null
-            Node temp = first;
-            boolean isLast = false;
-            while(!isLast){
-                if(temp.next == null){
-                    temp.next = node; // add to the end
-                    last = node; // store last node pointer
-                    isLast = true; // break loop
-                }
-                temp = temp.next;
-            }
-
+            last.next = node;
+            last = node;
         }
 
     }
@@ -54,6 +45,23 @@ public class LinkedList {
                 subjectNode = subjectNode.next;
             }
         }
+    }
+
+    public int index0f(int data){
+        int count = 0;
+        var temp = first;
+        if (temp == null){
+            return -1;
+        }
+
+        while (temp != null){
+            if (temp.data == data){
+                return --count;
+            }
+            temp = temp.next;
+            count++;
+        }
+        return -1;
     }
 
     public void printFirst(){
