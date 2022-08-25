@@ -1,5 +1,7 @@
 package codewithbright.LinkedList;
 
+import java.util.NoSuchElementException;
+
 public class LinkedList {
     private Node first;
     private Node last;
@@ -40,6 +42,10 @@ public class LinkedList {
 
     public void deleteFirst(){
         if (isEmpty()){
+            throw new NoSuchElementException();
+        }
+        if (first == last){
+            first = last = null;
             return;
         }
         var temp = first;
@@ -50,6 +56,10 @@ public class LinkedList {
 
     public void deleteLast(){
         if(isEmpty()) {
+            throw new NoSuchElementException();
+        }
+        if (first == last){
+            first = last = null;
             return;
         }
         var temp = first;
