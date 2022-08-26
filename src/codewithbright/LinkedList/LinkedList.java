@@ -46,6 +46,7 @@ public class LinkedList {
         }
         if (first == last){
             first = last = null;
+            size--;
             return;
         }
         var temp = first;
@@ -60,6 +61,7 @@ public class LinkedList {
         }
         if (first == last){
             first = last = null;
+            size--;
             return;
         }
         var temp = first;
@@ -109,6 +111,51 @@ public class LinkedList {
 
     public int size(){
         return this.size;
+    }
+
+    public void reverse(){
+        Node current = first;
+        Node prev = null;
+        Node next = current.next;
+
+        if (first.next == null)
+            return;
+        else {
+            while (next != null){
+                // Why make the "next" variable and not just use "current.next"
+                // At some point we alter the "current.next" (current.next = prev) and lose its
+                // original form, so we keep a temp value of the original form of "current" in "next"
+                next = current.next;
+                //check if current iteration is first node
+                if (current == first) {
+                    last = current;
+                }
+
+                //Check if next current iteration is last
+                if (current.next == null){
+                    first = current;
+                }
+                current.next = prev;
+                prev = current;
+                current = next;
+            }
+        }
+    }
+
+    public int[] toArray() throws NoSuchMethodException {
+        if(isEmpty())
+            throw new NoSuchMethodException();
+
+        int [] toArray = new int[size];
+        var current = first;
+
+        int index = 0;
+        while (current != null){
+            toArray[index++] = current.data;
+            current = current.next;
+        }
+
+        return toArray;
     }
 
     public void setLast(){

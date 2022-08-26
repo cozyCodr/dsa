@@ -12,7 +12,8 @@ public class Main {
         mylist.addFirst(25);
         mylist.printList();
         System.out.println(mylist.size());
-        mylist.deleteFirst();
+        mylist.reverse();
+        mylist.addLast(20);
         mylist.printList();
     }
 }
