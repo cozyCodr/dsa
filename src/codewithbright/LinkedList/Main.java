@@ -4,16 +4,14 @@ package codewithbright.LinkedList;
 
 public class Main {
     public static void main(String[] args){
-        LinkedList mylist = new LinkedList();
-        mylist.addFirst(10);
-        mylist.addLast(11);
-        mylist.addLast(12);
-        mylist.addLast(13);
-        mylist.addFirst(25);
-        mylist.printList();
-        System.out.println(mylist.size());
-        mylist.reverse();
-        mylist.addLast(20);
-        mylist.printList();
+        LinkedList myList = new LinkedList();
+        myList.addFirst(10);
+        myList.addLast(11);
+        myList.addLast(12);
+        myList.addLast(13);
+        myList.addFirst(25);
+        myList.addLast(20);
+        myList.printList();
+        System.out.println(myList.getKth(5));
     }
 }

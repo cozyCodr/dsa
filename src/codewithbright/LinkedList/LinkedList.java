@@ -77,6 +77,29 @@ public class LinkedList {
 
     }
 
+    public int getKth(int k){
+        if (isEmpty())
+            throw new IllegalStateException("List is empty");
+        var leftPointer = first; // Set first pointer
+        var rightPointer = first;
+
+        // Set second pointer
+        for (int x = 0; x < k-1; x++){
+            if(rightPointer == null){
+                throw new IllegalArgumentException("K too large");
+            }
+            rightPointer = rightPointer.next;
+        }
+
+        // Reach end of list with second pointer
+        while (rightPointer.next != null){
+            rightPointer = rightPointer.next;
+            leftPointer = leftPointer.next;
+        }
+
+        return leftPointer.data;
+    }
+
     public boolean contains(int data){
         var temp = first;
         if (isEmpty()){
@@ -114,6 +137,9 @@ public class LinkedList {
     }
 
     public void reverse(){
+
+        if (isEmpty()) return;
+
         Node current = first;
         Node prev = null;
         Node next = current.next;
@@ -122,19 +148,18 @@ public class LinkedList {
             return;
         else {
             while (next != null){
-                // Why make the "next" variable and not just use "current.next"
-                // At some point we alter the "current.next" (current.next = prev) and lose its
-                // original form, so we keep a temp value of the original form of "current" in "next"
-                next = current.next;
                 //check if current iteration is first node
                 if (current == first) {
                     last = current;
                 }
-
                 //Check if next current iteration is last
                 if (current.next == null){
                     first = current;
                 }
+                // Why make the "next" variable and not just use "current.next"
+                // At some point we alter the "current.next" (current.next = prev) and lose its
+                // original form, so we keep a temp value of the original form of "current" in "next"
+                next = current.next;
                 current.next = prev;
                 prev = current;
                 current = next;
