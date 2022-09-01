@@ -6,8 +6,10 @@ public class StringReverser {
 
     public String reverse(String string){
 
-        Stack<Character> stack = new Stack<>();
+        if (string == null)
+            throw new IllegalArgumentException("Only strings allowed");
 
+        Stack<Character> stack = new Stack<>();
         for (char ch : string.toCharArray())
             stack.push(ch);
 
