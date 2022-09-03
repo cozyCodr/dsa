@@ -31,15 +31,10 @@ public class BalancedExpression {
                 if (leftBrackets.indexOf(lastInsert) == rightBrackets.indexOf(ch)) {
                     continue;
                 }
-                else {
-                    System.out.println("Unbalanced " + stack.pop());
-                    return false;
-                }
             }
         }
 
         if (!stack.empty()) {
-            System.out.println("Unbalanced " + stack.pop());
             return false;
         }
 
