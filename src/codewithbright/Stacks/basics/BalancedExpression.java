@@ -1,12 +1,16 @@
 package codewithbright.Stacks.basics;
 
 import java.util.Arrays;
+import java.util.List;
 import java.util.Stack;
 
 public class BalancedExpression {
 
+    private final List<Character> leftBrackets = Arrays.asList('[', '{', '<', '(');
+    private final List<Character> rightBrackets = Arrays.asList(']', '}', '>', ')');
     public boolean isBalanced(String string){
         Stack<Character> stack = new Stack<>();
+
 
         for (char ch : string.toCharArray()){
             // Check if character is a left bracket
@@ -29,12 +33,10 @@ public class BalancedExpression {
     }
 
     private boolean isLeftBracket(char ch){
-        var leftBrackets = Arrays.asList('[', '{', '<', '(');
         return leftBrackets.contains(ch);
     }
 
     private boolean isRightBracket(char ch){
-        var rightBrackets = Arrays.asList(']', '}', '>', ')');
         return rightBrackets.contains(ch);
     }
 }
