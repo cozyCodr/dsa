@@ -1,36 +1,23 @@
 package codewithbright.Stacks.basics;
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Stack;
 
 public class BalancedExpression {
 
     public boolean isBalanced(String string){
         Stack<Character> stack = new Stack<>();
-        ArrayList<Character> leftBrackets = new ArrayList<Character>();
-        leftBrackets.add('[');
-        leftBrackets.add('{');
-        leftBrackets.add('<');
-        leftBrackets.add('(');
-        ArrayList<Character> rightBrackets = new ArrayList<>();
-        rightBrackets.add(']');
-        rightBrackets.add('}');
-        rightBrackets.add('>');
-        rightBrackets.add(')');
 
         for (char ch : string.toCharArray()){
             // Check if character is a left bracket
-            if(leftBrackets.contains(ch)){
+            if(isLeftBracket(ch)){
                 stack.push(ch);
             }
             // Check if character is a right bracket
-            if(rightBrackets.contains(ch)){
+            if(isRightBracket(ch)){
                 if(stack.empty())
                     return false;
-                char lastInsert = stack.pop();
-                if (leftBrackets.indexOf(lastInsert) == rightBrackets.indexOf(ch)) {
-                    continue;
-                }
+                stack.pop();
             }
         }
 
@@ -39,5 +26,15 @@ public class BalancedExpression {
         }
 
         return true;
+    }
+
+    private boolean isLeftBracket(char ch){
+        var leftBrackets = Arrays.asList('[', '{', '<', '(');
+        return leftBrackets.contains(ch);
+    }
+
+    private boolean isRightBracket(char ch){
+        var rightBrackets = Arrays.asList(']', '}', '>', ')');
+        return rightBrackets.contains(ch);
     }
 }
