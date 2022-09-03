@@ -25,13 +25,24 @@ public class BalancedExpression {
             }
             // Check if character is a right bracket
             if(rightBrackets.contains(ch)){
-                char lastInsertedBracket = stack.pop();
-                if (lastInsertedBracket == ch)
-                    continue;
-                else
+                if(stack.empty())
                     return false;
+                char lastInsert = stack.pop();
+                if (leftBrackets.indexOf(lastInsert) == rightBrackets.indexOf(ch)) {
+                    continue;
+                }
+                else {
+                    System.out.println("Unbalanced " + stack.pop());
+                    return false;
+                }
             }
         }
+
+        if (!stack.empty()) {
+            System.out.println("Unbalanced " + stack.pop());
+            return false;
+        }
+
         return true;
     }
 }

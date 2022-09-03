@@ -30,13 +30,18 @@ public class Main {
 
         // convert array to string
         name = String.valueOf(nameArray);
-        System.out.println(name);
+        // System.out.println(name);
         /* *************************************************** */
 
         // Method 2: Clean code using String reverser class
         StringReverser reverser = new StringReverser();
         String reversed = reverser.reverse("Bright");
-        System.out.println(reversed);
+        // System.out.println(reversed);
+
+
+        /* ******************************************* */
+        BalancedExpression be = new BalancedExpression();
+        System.out.println(be.isBalanced("(<<hello>>"));
 
     }
 }
