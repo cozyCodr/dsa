@@ -11,8 +11,20 @@ public class Stack {
             counter++;
         } else {
             makeBiggerStack();
+            stack[counter] = number;
+            counter++;
         }
     }
+
+    private void pop(){
+        if(isEmpty())
+            return;
+        else {
+            stack[counter - 1] = 0;
+            counter--;
+        }
+    }
+
     private boolean isNotFull() {
         return counter != size - 1;
     }
@@ -27,5 +39,12 @@ public class Stack {
             biggerStack[x] = stack[x];
         }
         stack = biggerStack;
+    }
+
+    private boolean isEmpty(){
+        if (counter == 0)
+            return true;
+        else
+            return false;
     }
 }
