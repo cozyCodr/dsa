@@ -10,18 +10,22 @@ public class Stack {
             stack[counter] = number;
             counter++;
         } else {
-            //double size
-            size *= 2;
-            int[] biggerStack = new int[size];
-
-            //copy initial array
-            for (int x = 0; x < stack.length; x++){
-                biggerStack[x] = stack[x];
-            }
-            stack = biggerStack;
+            makeBiggerStack();
         }
     }
     private boolean isNotFull() {
         return counter != size - 1;
+    }
+
+    private void makeBiggerStack(){
+        //double size
+        size *= 2;
+        int[] biggerStack = new int[size];
+
+        //copy initial array
+        for (int x = 0; x < stack.length; x++){
+            biggerStack[x] = stack[x];
+        }
+        stack = biggerStack;
     }
 }
