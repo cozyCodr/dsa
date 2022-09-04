@@ -8,6 +8,7 @@ public class BalancedExpression {
 
     private final List<Character> leftBrackets = Arrays.asList('[', '{', '<', '(');
     private final List<Character> rightBrackets = Arrays.asList(']', '}', '>', ')');
+    
     public boolean isBalanced(String string){
         Stack<Character> stack = new Stack<>();
 
@@ -21,7 +22,13 @@ public class BalancedExpression {
             if(isRightBracket(ch)){
                 if(stack.empty())
                     return false;
-                stack.pop();
+                var left = leftBrackets.indexOf(stack.pop());
+                var right = rightBrackets.indexOf(ch);
+                if (left == right)
+                    continue;
+                else
+                    return false;
+
             }
         }
 
