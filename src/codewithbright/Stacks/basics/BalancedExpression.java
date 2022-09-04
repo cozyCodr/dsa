@@ -22,8 +22,10 @@ public class BalancedExpression {
             if(isRightBracket(ch)){
                 if(stack.empty())
                     return false;
+
                 var left = leftBrackets.indexOf(stack.pop());
                 var right = rightBrackets.indexOf(ch);
+
                 if (left == right)
                     continue;
                 else
