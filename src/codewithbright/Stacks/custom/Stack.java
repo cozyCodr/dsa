@@ -25,6 +25,13 @@ public class Stack {
         }
     }
 
+    private int peek (){
+        if (isEmpty())
+            throw new IllegalArgumentException("Cannot peek empty stack");
+        else
+            return stack[counter];
+    }
+
     private boolean isNotFull() {
         return counter != size - 1;
     }
