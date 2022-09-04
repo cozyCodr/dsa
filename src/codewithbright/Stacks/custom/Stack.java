@@ -6,7 +6,7 @@ public class Stack {
     private int counter = 0;
 
     public void push(int number){
-        if(counter != size - 1) {
+        if(isNotFull()) {
             stack[counter] = number;
             counter++;
         } else {
@@ -20,5 +20,8 @@ public class Stack {
             }
             stack = biggerStack;
         }
+    }
+    private boolean isNotFull() {
+        return counter != size - 1;
     }
 }
