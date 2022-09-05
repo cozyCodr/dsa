@@ -1,5 +1,7 @@
 package codewithbright.Stacks.custom;
 
+import java.util.Arrays;
+
 public class Stack {
     private int size = 10;
     private int [] stack = new int [size];
@@ -51,5 +53,10 @@ public class Stack {
             return true;
         else
             return false;
+    }
+
+    @Override
+    public String toString(){
+        return Arrays.toString(stack);
     }
 }
