@@ -41,7 +41,11 @@ public class Main {
 
         /* ******************************************* */
         BalancedExpression be = new BalancedExpression();
-        System.out.println(be.isBalanced(")hello("));
+
+        /* ******************************************** */
+        int[] test = new int[2];
+
+        System.out.println(test == null);
 
     }
 }
