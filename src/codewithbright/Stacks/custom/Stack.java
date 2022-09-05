@@ -27,7 +27,7 @@ public class Stack {
 
     private int peek (){
         if (isEmpty())
-            throw new IllegalArgumentException("Cannot peek empty stack");
+            throw new IllegalStateException("Cannot peek empty stack");
         else
             return stack[counter];
     }
@@ -49,10 +49,7 @@ public class Stack {
     }
 
     private boolean isEmpty(){
-        if (counter == 0)
-            return true;
-        else
-            return false;
+        return counter == 0;
     }
 
     @Override
