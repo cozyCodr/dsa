@@ -7,18 +7,16 @@ public class Stack {
 
     public void push(int number){
         if(isNotFull()) {
-            stack[counter] = number;
-            counter++;
+            stack[counter++] = number;
         } else {
             makeBiggerStack();
-            stack[counter] = number;
-            counter++;
+            stack[counter++] = number;
         }
     }
 
     private void pop(){
         if(isEmpty())
-            return;
+            throw new IllegalStateException();
         else {
             stack[counter - 1] = 0;
             counter--;
