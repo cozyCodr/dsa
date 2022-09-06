@@ -5,6 +5,13 @@ public class ArrayQueue {
     int front = 0;
     int last = 0;
 
+    // Add
+    public void enqueue(int item){
+        if(isFull())
+            throw new StackOverflowError();
+        queue[last++] = item;
+    }
+
     public boolean isEmpty(){
         return front > last;
     }
