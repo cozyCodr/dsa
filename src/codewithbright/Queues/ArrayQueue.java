@@ -9,5 +9,9 @@ public class ArrayQueue {
         return front > last;
     }
 
+    public boolean isFull(){
+        return last >= queue.length;
+    }
+
 
 }
