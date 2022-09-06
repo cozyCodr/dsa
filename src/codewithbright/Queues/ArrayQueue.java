@@ -14,11 +14,19 @@ public class ArrayQueue {
 
     // Remove
     public int dequeue(){
+        if (isEmpty())
+            throw new IllegalStateException();
         return queue[front++];
     }
 
+    public int peek(){
+        if (isEmpty())
+            throw new IllegalStateException();
+        return queue[front];
+    }
+
     public boolean isEmpty(){
-        return front > last;
+        return front >= last;
     }
 
     public boolean isFull(){
