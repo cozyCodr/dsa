@@ -12,6 +12,11 @@ public class ArrayQueue {
         queue[last++] = item;
     }
 
+    // Remove
+    public int dequeue(){
+        return queue[front++];
+    }
+
     public boolean isEmpty(){
         return front > last;
     }
