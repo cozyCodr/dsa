@@ -1,5 +1,8 @@
 package codewithbright.Queues;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class ArrayQueue {
     private int[] queue;
     int front = 0;
@@ -34,6 +37,15 @@ public class ArrayQueue {
 
     public boolean isFull(){
         return last >= queue.length;
+    }
+
+    @Override
+    public String toString(){
+        ArrayList<Integer> temp = new ArrayList<>();
+        for(int x = front; x < last; x++){
+            temp.add(queue[x]);
+        }
+        return Arrays.toString(temp.toArray());
     }
 
 
