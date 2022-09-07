@@ -1,10 +1,13 @@
 package codewithbright.Queues;
 
 public class ArrayQueue {
-    private int[] queue = new int[20];
+    private int[] queue;
     int front = 0;
     int last = 0;
 
+    public ArrayQueue(int capacity) {
+        this.queue = new int[capacity];
+    }
     // Add
     public void enqueue(int item){
         if(isFull())
