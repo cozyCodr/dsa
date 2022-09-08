@@ -22,7 +22,9 @@ public class ArrayQueue {
     public int dequeue(){
         if (isEmpty())
             throw new IllegalStateException();
-        return queue[front++];
+        var frontItem = queue[front];
+        queue[front++] = 0;
+        return frontItem;
     }
 
     public int peek(){
