@@ -7,15 +7,18 @@ public class ArrayQueue {
     private int[] queue;
     int front = 0;
     int last = 0;
+    int count = 0;
 
     public ArrayQueue(int capacity) {
         this.queue = new int[capacity];
     }
+
     // Add
     public void enqueue(int item){
         if(isFull())
             throw new StackOverflowError();
         queue[last++] = item;
+        count++;
     }
 
     // Remove
@@ -24,6 +27,7 @@ public class ArrayQueue {
             throw new IllegalStateException();
         var frontItem = queue[front];
         queue[front++] = 0;
+        count--;
         return frontItem;
     }
 
@@ -34,11 +38,11 @@ public class ArrayQueue {
     }
 
     public boolean isEmpty(){
-        return front >= last;
+        return count == 0;
     }
 
     public boolean isFull(){
-        return last >= queue.length;
+        return count == queue.length;
     }
 
     @Override
