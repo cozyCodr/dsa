@@ -28,6 +28,7 @@ public class ArrayQueue {
             throw new IllegalStateException();
         var frontItem = queue[front];
         queue[front] = 0;
+        front = (front + 1) % queue.length;
         count--;
         return frontItem;
     }
