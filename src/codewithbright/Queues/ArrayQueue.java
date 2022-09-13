@@ -17,7 +17,8 @@ public class ArrayQueue {
     public void enqueue(int item){
         if(isFull())
             throw new StackOverflowError();
-        queue[last++] = item;
+        queue[last] = item;
+        last = (last + 1) % queue.length;
         count++;
     }
 
@@ -26,7 +27,7 @@ public class ArrayQueue {
         if (isEmpty())
             throw new IllegalStateException();
         var frontItem = queue[front];
-        queue[front++] = 0;
+        queue[front] = 0;
         count--;
         return frontItem;
     }
